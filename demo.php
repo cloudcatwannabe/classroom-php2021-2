@@ -360,4 +360,144 @@ for ($x = 0; $x < 10; $x++) {
   echo "The number is: $x <br>";
 }
 
+// Sesion 4
+
+//error_reporting(E_ALL);
+
+// Array unidimensional
+$array = array(); // Array vacío
+
+for($x = 1; $x < 11; $x++) {
+  $array[] = $x;
+}
+
+rsort($array);
+
+print_r($array);
+
+// print_r(array_count_values($array));
+
+// print_r(array_slice($array, 4));
+//print_r($array);
+
+$cars = array("Volvo", "BMW", "Toyota");
+
+$volvo = $cars[0];
+$bmw = $cars[1];
+$toyota = $cars[2];
+
+// echo "I like " . $volvo . ", " . $bmw . " and " . $toyota . ".";
+
+$arrLength = count($cars);
+
+for($x = 0; $x < $arrLength; $x++) {
+  echo $cars[$x]; // "Volvo" "BMW" "Toyota"
+  echo "<br>";
+}
+
+// echo count($cars);
+// Associative Arrays
+$age = array("Peter"=>"100", "Ben"=>"37", "Joe"=>"43");
+
+foreach($age as $indice => $value) {
+  echo 'Indice: '. $indice . ' Valor: '.$value. "<br>";
+}
+
+asort($age);
+ksort($age);
+print_r($age);
+
+// Arrays Multidimensionales
+$cars = array (
+  array("Volvo",22,18), // Marca, stock, sold <- [0]
+  array("BMW",15,13),
+  array("Saab",5,2),
+  array("Land Rover",17,15)
+);
+
+//echo $cars[0][0];
+
+/*
+echo $cars[0][0].": In stock: ".$cars[0][1].", sold: ".$cars[0][2].".<br>";
+echo $cars[1][0].": In stock: ".$cars[1][1].", sold: ".$cars[1][2].".<br>";
+echo $cars[2][0].": In stock: ".$cars[2][1].", sold: ".$cars[2][2].".<br>";
+echo $cars[3][0].": In stock: ".$cars[3][1].", sold: ".$cars[3][2].".<br>";
+*/
+
+for ($i = 0; $i < 4; $i++) {  
+  for ($y = 0; $y < 3; $y++) {
+    switch($y) {
+      case 0: echo $cars[$i][$y] . ": "; break;
+      case 1: echo ' In stock: ' . $cars[$i][$y]; break;
+      case 2: echo ' Sold :' . $cars[$i][$y]; break;
+      default: break;
+    }
+  }
+  echo '<br>';
+}
+
+$array = array(1,1,2,2,2,3,4,4);
+$count = array_count_values($array);
+
+foreach ($count as $number => $numberOfRepetitions) {
+  //echo "El número: ". $number. " se repite ". $numberOfRepetitions . " veces <br>";
+}
+
+/**
+ * function nameOfFunction($params, $params = null) {
+ *   code to be executed
+ *  return <informacion_a_retornar>
+ * }
+ */
+
+// @TODO documentation de la function
+function adicionDeNumeros(int $primerNumero, int $segundoNumero) : int {
+    return $primerNumero + $segundoNumero;
+}
+
+echo adicionDeNumeros(5,4);
+
+class Employee // Definición de clase
+{
+  private $firstName;
+  private $lastName;
+  private $age;
+
+  public function __construct($firstName, $lastName, $age)
+  {
+    $this->firstName = $firstName;
+    $this->lastName = $lastName;
+    $this->age = $age;
+  }
+
+  public function getFirstName()
+  {
+    return $this->firstName;
+  }
+
+  public function getLastName()
+  {
+    return $this->lastName;
+  }
+
+  public function getAge()
+  {
+    return $this->age;
+  }
+}
+
+$empleado = new Employee('Lino', 'Espinoza', '34');
+//echo gettype($empleado);
+echo $empleado->getFirstName();
+echo $empleado->getLastName();
+echo $empleado->getAge();
+
+$empleadoNocturno = new Employee('Mateo', 'Hinostroza', '19');
+//echo gettype($empleado);
+echo $empleadoNocturno->getFirstName();
+echo $empleadoNocturno->getLastName();
+echo $empleadoNocturno->getAge();
+
+?>
+
 ?> 
